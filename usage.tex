@@ -1,0 +1,122 @@
+\label{app:code}
+We provide shell scripts to run a text spotting application by choosing the method to be used to detect the candidate regions and also to run all text spotting methods available in the comparative tool. The option to run post-processing methods on top of text spotting method's output is also available.  
+
+To run all text spotting methods available, the following command can be used:
+
+\begin{lstlisting}[style=fancyterminal]
+ $ ./1-main-text-spotting-methods.sh \
+        --dataset_path /path/to/datasets \
+        --working_path /path/to/working/directory/ \
+        --dataset_id icdarXX \
+        --text_spotting_method_id all-methods
+\end{lstlisting}
+
+To see all options available, the following command can be used:
+\begin{lstlisting}[style=fancyterminal]
+ $ ./1-main-text-spotting-methods.sh --help
+ Usage: ./1-main-text-spotting-methods.sh [options]
+ 
+ options:
+ -h, --help                show brief help
+ --dataset_path            path to dataset directory
+ --working_path            path to output directory
+ --dataset_id              dataset identifier (choose from icdar11, icdar13, icdar15)
+ --text_spotting_method_id text spotting method identifier (choose from options below)
+       options:
+           all-methods (default)
+           deliverable-e2-canny
+           deliverable-e2-snoopertext
+           deliverable-e4-canny
+           deliverable-e4-snoopertext
+           deliverable-e4-mserswt
+           deliverable-e4-multiligual
+           deliverable-e4-scenetext
+           deliverable-e4-ssd-mobilenetv2
+           deliverable-e4-sstd
+           deliverable-e4-squeezedet
+           deliverable-e4-yolov3
+\end{lstlisting}
+
+To run the post-processing methods available on top of all text spotting methods, the following command can be used:
+
+\begin{lstlisting}[style=fancyterminal]
+ $ ./2-main-postprocessing.sh  
+        --dataset_path /path/to/datasets \
+        --working_path /path/to/working/directory/ \
+        --dataset_id icdarXX \
+        --text_spotting_method_id all-methods \
+        --postprocessing_method_id all-methods
+\end{lstlisting}
+
+To see all options available, the following command can be used:
+\begin{lstlisting}[style=fancyterminal]
+ $ ./2-main-postprocessing.sh --help
+ Usage: ./2-main-postprocessing.sh [options]
+ 
+ options:
+ -h, --help                show brief help
+ --dataset_path            path to dataset directory
+ --working_path            path to output directory
+ --dataset_id              dataset identifier (choose from icdar11, icdar13, icdar15)
+ --text_spotting_method_id text spotting method identifier (choose from options below)
+       options:
+           all-methods (default)
+           deliverable-e2-canny
+           deliverable-e2-snoopertext
+           deliverable-e4-canny
+           deliverable-e4-snoopertext
+           deliverable-e4-mserswt
+           deliverable-e4-multiligual
+           deliverable-e4-scenetext
+           deliverable-e4-ssd-mobilenetv2
+           deliverable-e4-sstd
+           deliverable-e4-squeezedet
+           deliverable-e4-yolov3
+ --postprocessing_method_id post-processing method identifier (choose from options below)
+       options:
+           all-methods (default)
+           postprocessing-samsung
+           postprocessing-improved
+\end{lstlisting}
+
+Finally, to evaluate the localizations obtained with text spotting methods, as well as the improvements obtained with the post-processing methods, the following command can be used:
+\begin{lstlisting}[style=fancyterminal]
+ $ ./4-main-spotting-evaluation.sh 
+        --dataset_path /path/to/datasets \
+        --working_path /path/to/working/directory/ \
+        --dataset_id icdarXX \
+        --text_spotting_method_id all-methods \
+        --postprocessing_method_id all-methods
+\end{lstlisting}
+
+To see all options available, the following command can be used:
+\begin{lstlisting}[style=fancyterminal]
+ $ ./4-main-spotting-evaluation.sh --help
+ Usage: ./4-main-spotting-evaluation.sh [options]
+ 
+ options:
+ -h, --help                show brief help
+ --dataset_path            path to dataset directory
+ --working_path            path to output directory
+ --dataset_id              dataset identifier (choose from icdar11, icdar13, icdar15)
+ --text_spotting_method_id text spotting method identifier (choose from options below)
+       options:
+           all-methods (default)
+           deliverable-e2-canny
+           deliverable-e2-snoopertext
+           deliverable-e4-canny
+           deliverable-e4-snoopertext
+           deliverable-e4-mserswt
+           deliverable-e4-multiligual
+           deliverable-e4-scenetext
+           deliverable-e4-ssd-mobilenetv2
+           deliverable-e4-sstd
+           deliverable-e4-squeezedet
+           deliverable-e4-yolov3
+ --postprocessing_method_id post-processing method identifier (choose from options below)
+       options:
+           all-methods (default)
+           none
+           postprocessing-improved
+           postprocessing-samsung
+\end{lstlisting}

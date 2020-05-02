@@ -1,0 +1,305 @@
+% Escolha: Portugues ou Ingles ou Espanhol.
+% Para a versão final do texto, após a defesa, acrescente Final:
+
+\documentclass[Ingles,Final]{ic-tese-v3}
+%\documentclass[Portugues,Final]{ic-tese-v3}
+
+\usepackage[latin1,utf8]{inputenc}
+%\usepackage{todonotes}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage[font=footnotesize]{subcaption}
+\usepackage{array}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage[table]{xcolor}
+\usepackage{ntheorem}
+\usepackage{IEEEtrantools}
+%\usepackage[color=blue!20]{todonotes}
+%\usepackage{hyperref}
+\usepackage{url}
+%\usepackage{subfigure}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{flushend}
+%\usepackage{cite}
+\input{ICIP_frankenstein/mytable.tex}
+\usepackage{pdflscape}
+\usepackage{longtable}
+
+\usepackage{listings}
+
+
+%For float barrier
+\usepackage{placeins}
+
+%For citations
+\usepackage[numbers,square,comma,]{natbib}
+\usepackage{bibentry}
+\usepackage{notoccite}
+
+
+%Rotating things
+\usepackage{rotating}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{fancyterminal}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\scriptsize\ttfamily,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,
+%    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstdefinestyle{terminal}
+{
+    backgroundcolor=\color{black},
+    basicstyle=\scriptsize\color{white}\ttfamily
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,
+%    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+%\lstset{style=mystyle}
+
+
+
+% Example definitions.
+% --------------------
+\def\x{{\mathbf x}}
+\def\L{{\cal L}}
+\newcommand{\etal}[1]{#1~\textit{et~al.}}
+%\input{mytable.tex}
+
+\newcommand{\dataset}{{\cal D}}
+\newcommand{\fracpartial}[2]{\frac{\partial #1}{\partial  #2}}
+\newcommand{\expnumber}[2]{{#1}\times10^{#2}}
+\newcommand{\highlight}[1]{\tikz[baseline]{\node[rounded corners,fill=green!25, anchor=base]{$\mathbf{#1}$}}}
+
+\newcommand{\correcao}[1]{\textcolor{red}{#1}}
+
+
+% Para acrescentar comentários ao PDF descomente:
+\usepackage
+%  [pdfauthor={nome do autor},
+%   pdftitle={titulo},
+%   pdfkeywords={palavra-chave, palavra-chave},
+%   pdfproducer={Latex with hyperref},
+%   pdfcreator={pdflatex}]
+{hyperref}
+
+
+\begin{document}
+
+% Escolha entre autor ou autora:
+\autor{Luís Gustavo Lorgus Decker}
+%\autora{Nome da Autora}
+
+% Sempre deve haver um título em português:
+\titulo{Localização de Textos em Imagens de Cena Utilizando Redes Convolucionais Leves}
+
+% Se a língua for o inglês ou o espanhol defina:
+\title{Scene Text Localization Using Lightweight Convolutional Networks }
+
+% Escolha entre orientador ou orientadora. Inclua os títulos acadêmicos:
+\orientador{Prof. Dr. Ricardo da Silva Torres}
+%\orientadora{Profa. Dra. Nome da Orientadora}
+
+% Escolha entre coorientador ou coorientadora, se houver.  Inclua os títulos acadêmicos:
+\coorientador{Dr. Allan da Silva Pinto}
+%\coorientadora{Profa. Dra. Eng. Lic. Nome da Co-Orientadora}
+
+% Escolha entre mestrado ou doutorado:
+\mestrado
+%\doutorado
+
+% Se houve cotutela, defina:
+%\cotutela{}
+
+\datadadefesa{12}{03}{2020}
+
+% Para a versão final defina:
+\avaliadorA{Dr. Allan da Silva Pinto}{Instituto de Computação/UNICAMP}
+\avaliadorB{Dr. Marcos Vinicius Mussel Cirne}{Instituto de Computação/UNICAMP}
+\avaliadorC{Prof. Dr. Rodrigo Minetto}{DAINF/UFTPR}
+%\avaliadorD{Prof. Dr. Quarto Avaliador}{Instituição do quarto avaliador}
+%\avaliadorE{Prof. Dr. Quinto Avaliador}{Instituição do quinto avaliador}
+%\avaliadorF{Prof. Dr. Sexto Avaliador}{Instituição do sexto avaliador}
+%\avaliadorG{Prof. Dr. Sétimo Avaliador}{Instituição do sétimo avaliador}
+%\avaliadorH{Prof. Dr. Oitavo Avaliador}{Instituição do oitavo avaliador}
+
+
+% Para incluir a ficha catalográfica em PDF na versão final, descomente e ajuste:
+\fichacatalografica{ficha_catalografica.pdf}
+
+
+% Este comando deve ficar aqui:
+\paginasiniciais
+
+
+% Se houver dedicatória, descomente:
+%\prefacesection{Dedicatória}
+%A dedicatória deve ocupar uma única página.
+
+
+% Se houver epígrafe, descomente e edite:
+% \begin{epigrafe}
+% {\it
+% Vita brevis,\\
+% ars longa,\\
+% occasio praeceps,\\
+% experimentum periculosum,\\
+% iudicium difficile.}
+%
+% \hfill (Hippocrates)
+% \end{epigrafe}
+
+
+% Agradecimentos ou Acknowledgements ou Agradecimientos
+\prefacesection{Acknowledgements}
+
+%\todo[inline]{Are you planning to stretch this text?}
+
+I would like to initially thank my advisor, Prof. Ricardo, and my co-advisor, Dr. Allan, for the valuable support on this journey; their comments, help, corrections, and incentives allowed me to develop this work.
+
+I am especially grateful to Danelise, that without her love and her trust I would not have even taken the first steps in graduate school. Thank you so much for everything! I love you!
+
+I thank my family, for all the strength and consideration throughout this period,  especially to my father Randolfo, who always believed in my potential and trusted in my endeavors!
+
+I am grateful to my colleagues at the RECOD laboratory, especially to my SAMSUNG project colleagues. I also thank the Norwegian University of Science and Technology~(NTNU) for its support.
+
+This work was partially funded by CNPq, S\~ao Paulo Research Foundation -- FAPESP (grants \#2014/12236-1, \#2015/24494-8, \#2016/50250-1, and \#2017/20945-0) and the FAPESP-Microsoft Virtual Institute (grants \#2013/50155-0 and \#2014/50715-9). This study was financed in part by the Coordena\c{c}\~{a}o de Aperfei\c{c}oamento de Pessoal de N\'{i}vel Superior - Brasil (CAPES) - Finance Code 001, and also by Samsung Eletr\^{o}nica da Amaz\^{o}nia Ltda., through the project ``Algoritmos para Detec\c{c}\~{a}o e Reconhecimento de Texto Multil\'{i}ngue (MLTSR)'', within the scope of the Informatics Law No. 8248/91.
+
+% Sempre deve haver um resumo em português:
+\begin{resumo}
+%O resumo deve ter no máximo 500 palavras e deve ocupar uma única página.
+\input{resumo.tex}
+%\todo{Linkar, traduzir e extender o abstract do artigo}
+\end{resumo}
+
+
+% Sempre deve haver um abstract:
+\begin{abstract}
+\input{ICIP_frankenstein/0-abstract.tex}
+%\todo{Linkar e extender o astract do artigo}
+\end{abstract}
+
+
+% Se houver um resumo em espanhol, descomente:
+%\begin{resumen}
+% A mesma regra aplica-se.
+%\end{resumen}
+
+
+% A lista de figuras é opcional:
+\listoffigures
+
+% A lista de tabelas é opcional:
+\listoftables
+
+% A lista de abreviações e siglas é opcional:
+% \prefacesection{Lista de Abreviações e Siglas}
+
+% A lista de símbolos é opcional:
+% \prefacesection{Lista de Símbolos}
+
+% Quem usa o pacote nomencl pode incluir:
+%\renewcommand{\nomname}{Lista de Abreviações e Siglas}
+%\printnomenclature[3cm]
+
+
+% O sumário vem aqui:
+\tableofcontents
+
+
+% E esta linha deve ficar bem aqui:
+\fimdaspaginasiniciais
+
+
+% O corpo da dissertação ou tese começa aqui:
+\chapter{Introduction}
+\input{ICIP_frankenstein/1-introduction.tex}
+
+
+
+
+\chapter{Concepts and Related Work}%Background and related work
+\label{chap:related-work}
+\input{related_work/related_work.tex}
+\input{related_work/deep_learning/deep_learning.tex}
+
+%Definir o que é text detection 1.5
+%Falar que como os metodos sao baseados em rede, nao irmemos abrodar os nao deep, rederir o artigo x referenciado no survey 
+%Text Recognition -> 1  paginas e meia
+%Deep learning (O que é rede, camada, neuronio....) 1.5 a 2 paginas
+%->Deep learning for lowconstrained computing scenario (varias redes gransed com milhoes de parametros sao  boas em muitas coisas, como resnet, etc, e tem varias redes na leteratura boas para cenario restritivo, e no capitulo seguinte falarei sobre as redes que utilizamos (Olhar mais redes mobile, e soluções shallow now) 4-3
+% em related work, falar de propostas da literatura que utilizam redes, e então tecer um caminho até as propostas em rede com cenário restritivo. 5 
+%3.1 -> redes para o problema 2
+%3.2 -> Iniciativas para contrained scenario 3
+
+
+\FloatBarrier
+\newpage
+\chapter{MobText}
+\label{chap:proposed-method}
+
+\input{ICIP_frankenstein/2-methodology.tex}
+\input{ICIP_frankenstein/3-experimental-results.tex}%Mandar para o proximo capitulo
+\input{ICIP_frankenstein/results.tex} %chap4: validatiion  4.1 experimental protocol 4.2Results and discussion
+\input{E4/prototype.tex}
+\chapter{Conclusions}
+
+\input{ICIP_frankenstein/4-conclusions.tex}
+
+% As referências:
+\bibliographystyle{ieeetr}
+%\bibliography{ic-tese-v3,bib/IEEEabrv,bib/others-abbrev,bib/maestro-samsung,bib/maestro-samsung-idar-ijdar}
+\bibliography{new_bib}
+
+
+% Os anexos, se houver, vêm depois das referências:
+\appendix
+\chapter{Copyright}
+\label{appendix:A}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.99\textwidth]{related_work/figs/copyright.png}
+    \caption{IEEE Copyright disclaimer for partial use of indexed articles on dissertations or thesis.}
+    \label{fig:copyright}
+\end{figure}
+\chapter{Usage Example of the Evaluation Tool}
+\input{usage.tex}
+\end{document}

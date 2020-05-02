@@ -1,0 +1,57 @@
+
+\label{chap:conclusions}
+
+ \nobibliography*
+
+How to perform efficient and effective text detection in scene images in restrictive computing environments? 
+To address this research problem, we presented a new method based on the combination of two light architectures, MobileNetV2 and Single Shot Detector~(SSD), which yielded better or comparable effectiveness performance when compared with state-of-the-art baselines despite having a low processing time and small model size, being suitable for a restrictive computing environment.
+
+This work resulted on a published conference paper~\cite{decker}:
+\begin{itemize}
+    \item \textbf{\bibentry{decker}}.
+\end{itemize}
+
+Also, this work contributed to other publications~\cite{joselito-paper,manuel,jhonny}. Appendix~\ref{appendix:A} comprehends a copyright disclaimer for partial use of indexed articles on dissertationsor thesis.
+
+
+As contributions and answers to our research questions, we have that: 
+
+\begin{itemize}
+    \item \textbf{Would an object detection network, trained for the text detection task, achieve competitive results, in comparison with state-of-the-art methods?}
+    
+    \textbf{Yes}. Compared with other object detection solutions, our method is the most promising one in all evaluation criteria, yielding state-of-the-art on ICDAR'11 dataset and competitive results in ICDAR'13, alongside very satisfactory results on images obtained from the wild. Our findings disagree with the discussion provided in~\cite{Ye2015PAMI}, as we demonstrated that adapting object detector networks for text detection is a promising research venue, besides the system still being sensitive to visual abnormalities such as reflections and deformations.
+    
+    \item \textbf{Would a mobile-oriented CNN architecture maintain a competitive performance on text detection while being light enough to be executed on devices with restricted computing power and built-in memory capacity?}
+    
+    \textbf{Yes.} Our method, when executed on a real application on a mobile, computational restrictive device, maintained the performance and had very promising processing time, showing itself suitable for being applied on a embedded system. 
+    
+    \item \textbf{How to devise a generic evaluation tool to support the assessment of text localization and recognition methods?}
+    
+     Two types of approaches were considered in the implementation of text detection and recognition approaches: methods that do not rely on deep learning strategies; and methods that take advantage of deep learning-based architectures. The prototype also includes post-processing components, which may be used to improve text detection results.
+    
+    
+\end{itemize}
+
+There is still a lot of work to be done with the scenario of text detection and recognition in devices with restricted computing power that can be a future work after our proposal, such as:
+
+\begin{itemize}
+    \item Improve the system to detect multi-oriented text, extending the capabilities of the proposal to multi-oriented text dataset such as ICDAR'15.
+    
+    \item Improve the architecture of the feature extractor network, aiming for a smaller processing time, consequently a smaller energy impact, and/or the extraction of better features, allowing to detect text on images with abnormalities.
+    
+    \item Extend the proposed approach for the detection of multi-language text. The goal is to efficiently recognize characters and sentences in languages different from the Latin-derived, such as Chinese, Japanese, Korean, Hindi and Arabic. 
+    
+    \item Create mobile-based applications that can benefit from the proposed lightweight architecture.
+    
+    \item Extend the evaluation tool to encapsulate different evaluation protocols, including, among others, datasets, and performance evaluation metrics. 
+    
+    \item Extend the evaluation tool to simulate scenarios commonly found when handling restrictive computing devices. This infrastructure may contribute, for example, to speed up the development of new text localization and recognition methods customized for specific constrained hardware configurations.
+    
+    \item Extend the evaluation tool to include a graphical user interface, which would support the selection of text detection and recognition methods.
+    
+    \item Extend the evaluation tool to support the creation of new applications based on implemented methods. One starting point would be the creation of an application that exploits contextual information provided by text recognition methods.
+    
+    \item Extend the evaluation tool to support fusion strategies of the different methods for text spotting and recognition.
+    
+\end{itemize}
+

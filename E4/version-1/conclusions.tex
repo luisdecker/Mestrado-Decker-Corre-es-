@@ -1,0 +1,45 @@
+\section{Conclusions}
+\label{sec:conclusions}
+
+This report refers to the second deliverable related to the project Multi-Lingual Text Spotting and Recognition (MLTSR). The report describes performed experiments aiming to evaluate text detection solutions. Two types of approaches were considered: methods that do not rely on deep learning strategies; and methods that take advantage of deep-learning-based architectures. Those methods were evaluated in terms of effectiveness and efficiency. The effectiveness evaluation considered the capacity of the method in properly locating texts within images; while efficiency aspects were evaluated in terms of processing time, and storage requirements. Performed experiments considered widely used benchmarks (evaluation metrics and datasets). 
+
+As expected, the deep-learning-based methods presented top-performance results in terms of effectiveness, while the non-deep methods showed to be very efficient options for text detection. However, we noticed some exceptions to which we could pay attention in our future investigations. In opposite directions, we found some efficient deep learning methods (SqueezeDet, SSD-MobilenetV2, and TextBoxes), and effective non-deep methods (SnoopText, Scene Text Recognition methods, and Canny Text Detection). Further investigation to find the mechanisms responsible for these unexpected results might be a good source of inspiration towards achieving fast and accurate models for text detection in constrained processing scenarios.
+
+The conducted comparative study provides insights about traditional and recently proposed approaches for the text detection problem, opening promising research directions for the MSTSR project.
+Achieved results suggest that some of the evaluated methods are good candidates to be further improved, in terms of both efficiency and effectiveness, in future work. The goal is to have proper methods for prototyping and deploying in restrictive computing devices. 
+Some of those research venues include:
+
+%\todo[inline]{Revise the list of possible research venues below.}
+
+\begin{enumerate}
+
+    \item Extend the evaluation protocol to consider:
+    \begin{itemize}
+        \item Other datasets, such as those related to Focused Scene Text (2013-2015) -- Word Recognition, and End to End; Incidental Scene Text (2015) -- Word Recognition, and End to End; and MLT (2017) -- Text Detection, Word Identification, and both;
+        \item Evaluation protocols suitable for the evaluation of methods targeting end-to-end recognition scenarios.\footnote{Experiments involving those datasets and considering the most promising non-deep and deep solutions will be described in Deliverable E6.}
+    \end{itemize}
+
+    \item Improve the efficiency and effectiveness of the SnoopText method: SnoopText yielded competitive effectiveness results for both ICDAR'11 and ICDAR'13 datasets. We believe that its effectiveness may be further improved by investigating deeply the impact of its parameter setting. Regarding efficiency, one alternative would be to re-implement (some of) its components in another, possibly, faster language.
+    
+    \item Use other descriptors, such as LPQ, HOG, LBP, and M-LBP to train the classifiers (first and second ones) of the Scene text detection implementation proposed by Neumann and Matas~\cite{Neumann2012CVPR}\cite{Neumann2016TPAMI}. The classifiers of the Scene text detection implementation use only binary descriptors to classify if a ER is a candidate character. However, a lot of research initiatives have been using texture descriptors because they are also very efficient to extract different discriminative features (see Fig.~\ref{fig:new_pipeline}).
+    
+    \item Improve the effectiveness of the FASText method by investigating other possibilities for the post-processing stage to detect multi-oriented bounding boxes.
+
+    \item Investigate the use of the double thresholding strategy~\cite{Cho2016CVPR}, instead of using two classifiers, to extract candidate characters and remove false positives, as well as use tracking by hysteresis to increase the confidence of the characters classified as weak using OCR.
+    %\todo[inline]{Add a reference for ``double thresholding''}
+    
+    \item Investigate other descriptors (e.g., LPQ and T-Hog) to build a pruning classifier for the Canny Text Detection method. Results of MSER and SWT are promising, but they demonstrated that suffer from a high rate of false positives. We will use a text/non-text classifier in order to eliminate false positives and observe the impact of this alternative in the final F-measure.
+    
+    \item Perform experiments for text detection using blocks of a Discrete Cosine Transform (DCT) along with grouping methods as geometric features (size of blocks, distance between blocks, etc.) given that some preliminary experiments showed promising results of DCT.
+    
+    \item Investigate the possibility of merging the best features of TextBoxes++ and SSD-MobilenetV2, i.e., take advantage of the adapted layers of TextBoxes++ to recognize oriented text along with the structure and final model size of SSD-MobilenetV2.
+    
+    \item Train an object-detection network like SSD-Mobilenetv2 to detect characters (a-Z,0-9) and use a grouping method to create word-level predictions. As we gonna have the value of each char, we can convert this to an end-to-end model.
+\end{enumerate}
+%
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figs/new-pipeline-scene-text-recognition.pdf}
+    \caption{Possible pipeline to be considered in further investigations to improve the Scene Text Recognition method.}
+    \label{fig:new_pipeline}
+\end{figure}

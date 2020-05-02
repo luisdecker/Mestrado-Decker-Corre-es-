@@ -1,0 +1,32 @@
+\section{Machine Learning}
+As aforementioned, the proposed solution of his work is intrinsically a machine learning method. Also called as inductive learning, a machine learning method is a solution that have the capability of improve itself based on data provided by examples feed to the algorithm. Differently from hand-crafted non-machine-learning approaches, these class of methods tries to model a problem in a way that the input and output correspondence isn't well understood\cite{Shukla2018}. 
+
+Usually in the literature\cite{Shukla2018,russell2016,bishop2006}, machine learning methods are classified as belonging to one or more of this classes: \textbf{supervised, unsupervised} or \textbf{reinforcement} learning.
+\subsection{Machine learning categories}
+\subsubsection{Supervised Learning}
+The method proposed in this work is a Supervised Learning method. This class of machine learning methods are distinct for having a ground truth data, that is, the datasets used for the training of this methods contains a specialist generated annotation for every data example. This annotation can be a class of a image or values to be inferred, like the points of bounding box, for example\cite{Shukla2018}. The class of problems usually approached by this type of methods are the one of classifying a data example in a finite number of discrete categories (classification) or predicting one or more continuous variables (regression). 
+
+\subsubsection{Unsupervised Learning}
+Unsupervised Learning is the class of machine learning methods that takes unlabeled data as a training example, that is, the inputs of the learning algorithm are vectors without a corresponding target value. This methods are commonly used to address the problems like that of finding clusters of similar examples in a dataset (clustering), determining a distribution of the data within the input space (density estimation) or projecting the data from a high-dimensional space to a 2D or 3D space (visualization). \cite{bishop2006}
+
+Methods that combines supervised and unsupervised learning are called semi-supervised methods.
+
+\subsubsection{Reinforcement Learning}
+Another very important class of machine learning methods are those that are concerned with the problem of finding the best action in a given scenario in order to maximize a reward: the Reinforcement Learning methods. Those methods, in contrast with Supervised ones, tries to learn the optimal outputs to a given input not by direct example, but by trial and error, that is, the method learns how to maximize a reward function interacting with the environment. The concept of a state is very common in this class of methods, giving that a action taken can generate consequences in subsequent steps. \cite{bishop2006}
+
+\subsection{Machine Learning Components}
+Given that the proposed method in this work is a \textit{supervised learning} technique, in this section a background about existing and used tools of the supervised learning area will be provided. The concepts of a artificial neural network (ANN), a perceptron, layers, convolutional layers, pooling layers and other useful tools will be introduced. 
+
+\subsubsection{Perceptron}
+The Perceptron\cite{perceptron} is one of the simplest ANN architectures components. This layer is composed of a set of Threshold Linear Units (TLU). A TLU is a simple structure that receives $n$ inputs, each one associated with a weight, computes a weighted sum of its inputs, applies a \textit{step function} to that sum then outputs the result, that is,
+\begin{equation}
+    \begin{aligned}
+        z = w_1 x_1 + w_2 x_2 + \dotsi + w_n x_n &= \boldsymbol{x^T w},\\ 
+        o &= \text{step}(z),
+    \end{aligned}{}
+\end{equation}
+with $o$ being the output. In the perceptron architecture, a certain number of TLU's are disposed in a fashion such as all the TLU's are connected to add the inputs, and all of the outputs of the TLU's are connected to the next layer, or to the final output. This architecture is also known as Dense Layer or Fully Connected Layer (FC).
+
+
+
+
